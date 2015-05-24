@@ -1,4 +1,5 @@
 from django.db import models
+from bee.settings import MEDIA_ROOT
 
 # Create your models here.
 GENDER_CHOICES = (
@@ -18,7 +19,7 @@ SEXUAL_ORIENTATION_CHOICES = (
 class Badge(models.Model):
 	name = models.CharField(verbose_name="nome", max_length = 100, unique=True)
 	description = models.CharField(verbose_name="descrição", max_length = 300)
-	icon = models.ImageField() #ver width, height e upload to
+	icon = models.ImageField(upload_to = MEDIA_ROOT) #ver width, height e upload to
 
 class Tag(models.Model):
 	title = models.CharField(verbose_name = "titulo", max_length=30, unique=True)
